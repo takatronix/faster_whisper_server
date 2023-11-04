@@ -1,6 +1,6 @@
 # Faster Whisper サーバー
 
-[Enlgish version is here.](README_EN.md)
+[English version is here.](README_EN.md)
 
 
 

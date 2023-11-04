@@ -1,14 +1,16 @@
-# Faster Whisperサーバー
+# Faster Whisper サーバー
 
-[![](https://img.youtube.com/vi/Z9dHLUZvD1E/0.jpg)
+[Enlgish version is here.](README_EN.md)
 
-[](https://www.youtube.com/watch?v=Z9dHLUZvD1E)
+
 
 [*faster*-*whisper*](https://github.com/guillaumekln/faster-whisper) とは、 OpenAI の 音声認識モデルWhisperを高速化したものです。 GPUを使えば、精度が高いのにもかかわらずリアルタイム音声認識ができる便利なものです。
 
 これとDeepL(AI翻訳)を組み合わせてリアルタイム翻訳機を作ったら非常に便利だったので公開します。
 
 クライアント側は、javascriptで作っており、音声の切れ目を検出してサーバに音声データを送信して、認識結果と翻訳結果を表示します。
+
+Youtube：https://www.youtube.com/watch?v=Z9dHLUZvD1E
 
 
 

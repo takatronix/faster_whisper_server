@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Voice Recording and WebSocket Communication</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            flex-shrink: 0;
+            height: 70px
+        }
+        #messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-top: 10px;
+            font-size: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .log-area{
+            height: 90vh
+        }
+    </style>
+</head>
+<body>
+<div class="flex-container">
+    <div class="header">
+            <button id="start">Start Recording</button>
+            <button id="stop">Stop Recording</button>
+
+            <script src="script.js"></script>
+            <button id="clear">Clear</button>
+            <button id="save">Save</button>
+            <span id="status-text"></span>
+
+            <!-- Flex container to hold the controls side by side -->
+            <div id="controls-container" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <!-- Volume meter display -->
+                <div id="volume-meter">
+                    <label for="volume">Volume Level:</label>
+                    <progress id="volume" value="0" max="100"></progress>
+                    <span id="volume-level-value">0</span>
+                </div>
+
+                <!-- Slider for controlling the recording level -->
+                <div id="recording-level-control">
+                    <label for="recording-level-slider">Start Level:</label>
+                    <input type="range" id="recording-level-slider" min="0" max="100" value="5">
+                    <span id="recording-level-value">5</span>
+                </div>
+                <div id="stop-level-control">
+                    <label for="stop-level-slider">Stop Level:</label>
+                    <input type="range" id="stop-level-slider" min="0" max="100" value="35">
+                    <span id="stop-level-value">35</span>
+                </div>
+                <!-- Silence Time Configuration -->
+                <div id="silence-time-config">
+                    <label for="silence-time-input">Silent Detection(ms):</label>
+                    <input type="number" id="silence-time-input" min="0" value="200">
+                    <button id="save-silence-time">Save</button>
+                </div>
+            </div>
+
+
+    </div>
+
+    </div>
+    <div class = "log-area">
+        <div id="messages"></div>
+    </div>
+</body>
+
+</html>

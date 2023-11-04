@@ -1,6 +1,8 @@
 # Faster Whisperサーバー
 
-[![](https://img.youtube.com/vi/Z9dHLUZvD1E/0.jpg)](https://www.youtube.com/watch?v=Z9dHLUZvD1E)
+[![](https://img.youtube.com/vi/Z9dHLUZvD1E/0.jpg)
+
+[](https://www.youtube.com/watch?v=Z9dHLUZvD1E)
 
 [*faster*-*whisper*](https://github.com/guillaumekln/faster-whisper) とは、 OpenAI の 音声認識モデルWhisperを高速化したものです。 GPUを使えば、精度が高いのにもかかわらずリアルタイム音声認識ができる便利なものです。
 

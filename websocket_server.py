@@ -4,6 +4,7 @@ from aiohttp import web
 import settings
 from speech_recognizer import SpeechRecognizer
 from translator import Translator
+import ssl
 
 recognizer = SpeechRecognizer(settings.TRANSLATION_TARGET_LANGUAGE, settings.DEVICE)
 translator = Translator(settings.DEEPL_API_KEY)
@@ -52,7 +53,19 @@ async def websocket_handler(request):
     return ws
 
 
+# audioフォルダの中身を削除、フォルダがなければ作成
+audio_dir = os.path.join("audio")
+for file in os.listdir(audio_dir):
+    os.remove(os.path.join(audio_dir, file))
+os.makedirs(audio_dir, exist_ok=True)
+
 app = web.Application()
 app.router.add_get('/translate', websocket_handler)
 
-web.run_app(app, port=9090)
+if settings.USE_SSL:
+    ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    ssl_context.load_cert_chain(settings.SSL_CERT, settings.SSL_KEY)
+    web.run_app(app, host='0.0.0.0', port=settings.PORT_NO, ssl_context=ssl_context)
+else:
+    web.run_app(app, host='0.0.0.0', port=settings.PORT_NO)
+

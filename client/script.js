@@ -4,6 +4,11 @@ let audioChunks = [];
 let socket;
 let mediaStream; // グローバルスコープに追加
 
+
+let url = 'ws://localhost:9090/translate';
+let useSSL = true;
+let urlSSL = 'wss://localhost:9090/translate';
+
 var startThreshold = 5; // 録音を開始するボリュームレベル
 var stopThreshold = 35; //　録音を停止するボリュームレベル
 let silenceTime = 200; // 静けさが続くべきミリ秒数
@@ -60,7 +65,10 @@ function stopRecording() {
 }
 
 function setupWebSocket() {
-    socket = new WebSocket('ws://localhost:9090/translate');
+    if(useSSL)
+        socket = new WebSocket(urlSSL);
+    else
+        socket = new WebSocket(url);
 
     socket.onopen = function(event) {
         addMessage("WebSocket is open now.");
